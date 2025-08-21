@@ -1,0 +1,133 @@
+/* 灵魂回响页面样式 */
+.intro-card {
+  margin: 20px;
+}
+
+.intro-card ion-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+}
+
+.intro-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.intro-card p {
+  font-size: 14px;
+  opacity: 0.9;
+  margin: 5px 0;
+}
+
+.bottles-section {
+  padding: 0 20px;
+}
+
+.bottles-section h3 {
+  color: var(--ion-color-medium);
+  margin: 20px 0 10px 0;
+}
+
+.bottle-content {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ion-text-color);
+  white-space: pre-wrap;
+  margin-bottom: 15px;
+}
+
+.bottle-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bottle-time {
+  font-size: 12px;
+  color: var(--ion-color-medium);
+}
+
+.echoes-received {
+  width: 100%;
+}
+
+.echo-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.echo-chips ion-chip {
+  font-size: 12px;
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+.bottle-intro {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--ion-color-medium);
+}
+
+.bottle-intro p {
+  margin: 5px 0;
+}
+
+.received-bottle {
+  margin-bottom: 20px;
+}
+
+.received-bottle ion-card {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+.bottle-message {
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: center;
+  color: var(--ion-text-color);
+  padding: 20px 0;
+}
+
+.echo-selection {
+  margin: 20px 0;
+}
+
+.echo-selection h3 {
+  text-align: center;
+  color: var(--ion-color-medium);
+  margin-bottom: 15px;
+}
+
+.echo-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.echo-options ion-button {
+  --box-shadow: none;
+}
+
+.action-buttons {
+  margin-top: 20px;
+}
+
+.action-buttons ion-button {
+  margin: 10px 0;
+}
+
+ion-fab-button {
+  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+ion-refresher {
+  --refresher-text-color: var(--ion-color-medium);
+  --refresher-icon-color: var(--ion-color-primary);
+}

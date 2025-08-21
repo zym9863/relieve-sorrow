@@ -1,7 +1,19 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { 
+  IonApp, 
+  IonIcon, 
+  IonLabel, 
+  IonRouterOutlet, 
+  IonTabBar, 
+  IonTabButton, 
+  IonTabs, 
+  setupIonicReact 
+} from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import { wine, sparkles, home } from 'ionicons/icons';
 import Home from './pages/Home';
+import GobletOfTime from './pages/GobletOfTime';
+import EchoesOfSoul from './pages/EchoesOfSoul';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -35,17 +47,42 @@ import './theme/variables.css';
 
 setupIonicReact();
 
+/**
+ * 主应用组件 - 解忧应用
+ */
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-      </IonRouterOutlet>
+      <IonTabs>
+        <IonRouterOutlet>
+          <Route exact path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/goblet">
+            <GobletOfTime />
+          </Route>
+          <Route exact path="/echoes">
+            <EchoesOfSoul />
+          </Route>
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
+        </IonRouterOutlet>
+        <IonTabBar slot="bottom">
+          <IonTabButton tab="home" href="/home">
+            <IonIcon icon={home} />
+            <IonLabel>首页</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="goblet" href="/goblet">
+            <IonIcon icon={wine} />
+            <IonLabel>时光酒杯</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="echoes" href="/echoes">
+            <IonIcon icon={sparkles} />
+            <IonLabel>灵魂回响</IonLabel>
+          </IonTabButton>
+        </IonTabBar>
+      </IonTabs>
     </IonReactRouter>
   </IonApp>
 );
