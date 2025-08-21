@@ -142,7 +142,7 @@ const GobletOfTime: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
-        <IonSegment value={filterType} onIonChange={e => setFilterType(e.detail.value!)}>
+        <IonSegment value={filterType} onIonChange={e => setFilterType(String(e.detail.value!))}>
           <IonSegmentButton value="all">
             <IonLabel>全部</IonLabel>
           </IonSegmentButton>
