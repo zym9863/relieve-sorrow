@@ -17,8 +17,7 @@ import {
   IonGrid,
   IonRow,
   IonCol,
-  IonText,
-  IonBadge
+  IonText
 } from '@ionic/react';
 import { wine, sparkles, heart, sunny } from 'ionicons/icons';
 import { useHistory } from 'react-router-dom';
