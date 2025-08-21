@@ -1,40 +1,124 @@
-/* 灵魂回响页面样式 */
+/* 灵魂回响页面样式 - 视觉增强版 */
 .intro-card {
-  margin: 20px;
+  margin: var(--relieve-spacing-lg);
+  animation: fade-in-up 0.8s ease-out;
 }
 
 .intro-card ion-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--relieve-gradient-primary);
   color: white;
   text-align: center;
+  border-radius: var(--relieve-border-radius-xl);
+  box-shadow: var(--relieve-shadow-colored);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--relieve-transition-medium) ease;
+}
+
+.intro-card ion-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  transition: all var(--relieve-transition-slow) ease;
+}
+
+.intro-card ion-card:hover::before {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.intro-card ion-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(102, 126, 234, 0.35);
 }
 
 .intro-card h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: var(--relieve-font-size-2xl);
+  margin-bottom: var(--relieve-spacing-sm);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .intro-card p {
-  font-size: 14px;
-  opacity: 0.9;
-  margin: 5px 0;
+  font-size: var(--relieve-font-size-sm);
+  opacity: var(--relieve-opacity-medium);
+  margin: var(--relieve-spacing-xs) 0;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.intro-card ion-button {
+  margin-top: var(--relieve-spacing-md);
+  --background: rgba(255, 255, 255, 0.2);
+  --color: white;
+  --border-color: rgba(255, 255, 255, 0.3);
+  --border-radius: var(--relieve-border-radius-small);
+  backdrop-filter: blur(10px);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all var(--relieve-transition-fast) ease;
+}
+
+.intro-card ion-button:hover {
+  --background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
 }
 
 .bottles-section {
-  padding: 0 20px;
+  padding: 0 var(--relieve-spacing-lg);
+  animation: fade-in-up 1s ease-out 0.2s both;
 }
 
 .bottles-section h3 {
   color: var(--ion-color-medium);
-  margin: 20px 0 10px 0;
+  margin: var(--relieve-spacing-lg) 0 var(--relieve-spacing-sm) 0;
+  font-size: var(--relieve-font-size-lg);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-left: var(--relieve-spacing-md);
+}
+
+.bottles-section h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 20px;
+  background: var(--relieve-gradient-primary);
+  border-radius: 2px;
 }
 
 .bottle-content {
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: var(--relieve-font-size-md);
+  line-height: 1.8;
   color: var(--ion-text-color);
   white-space: pre-wrap;
-  margin-bottom: 15px;
+  margin-bottom: var(--relieve-spacing-md);
+  padding: var(--relieve-spacing-md);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border-radius: var(--relieve-border-radius-small);
+  border-left: 4px solid var(--ion-color-tertiary);
+  backdrop-filter: blur(5px);
+  position: relative;
+}
+
+.bottle-content::after {
+  content: '"';
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 24px;
+  color: var(--ion-color-tertiary);
+  opacity: 0.3;
+  font-family: serif;
 }
 
 .bottle-meta {
@@ -42,12 +126,18 @@
   justify-content: space-between;
   align-items: flex-start;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--relieve-spacing-sm);
+  margin-top: var(--relieve-spacing-md);
 }
 
 .bottle-time {
-  font-size: 12px;
+  font-size: var(--relieve-font-size-xs);
   color: var(--ion-color-medium);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: var(--relieve-border-radius-small);
+  backdrop-filter: blur(5px);
+  font-weight: 500;
 }
 
 .echoes-received {
@@ -57,77 +147,247 @@
 .echo-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 10px;
+  gap: var(--relieve-spacing-xs);
+  margin-top: var(--relieve-spacing-sm);
 }
 
 .echo-chips ion-chip {
-  font-size: 12px;
+  font-size: var(--relieve-font-size-xs);
+  --background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  transition: all var(--relieve-transition-fast) ease;
+  animation: fade-in-up 0.4s ease-out;
+}
+
+.echo-chips ion-chip:hover {
+  transform: translateY(-1px) scale(1.05);
+  --background: rgba(255, 255, 255, 0.2);
 }
 
 .modal-content {
-  padding: 20px;
+  padding: var(--relieve-spacing-lg);
+  animation: fade-in-up 0.6s ease-out;
 }
 
 .bottle-intro {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: var(--relieve-spacing-lg);
   color: var(--ion-color-medium);
+  animation: fade-in-up 0.8s ease-out 0.2s both;
 }
 
 .bottle-intro p {
-  margin: 5px 0;
+  margin: var(--relieve-spacing-xs) 0;
+  font-size: var(--relieve-font-size-sm);
+  line-height: 1.6;
+  font-style: italic;
 }
 
 .received-bottle {
-  margin-bottom: 20px;
+  margin-bottom: var(--relieve-spacing-lg);
+  animation: fade-in-up 0.6s ease-out 0.4s both;
 }
 
 .received-bottle ion-card {
-  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  background: var(--relieve-gradient-cool);
+  border-radius: var(--relieve-border-radius-medium);
+  box-shadow: var(--relieve-shadow-medium);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--relieve-transition-medium) ease;
+}
+
+.received-bottle ion-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--relieve-gradient-cool);
+  border-radius: var(--relieve-border-radius-medium);
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0.6;
+}
+
+.received-bottle ion-card:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: var(--relieve-shadow-strong);
 }
 
 .bottle-message {
-  font-size: 18px;
-  line-height: 1.8;
+  font-size: var(--relieve-font-size-lg);
+  line-height: 1.9;
   text-align: center;
   color: var(--ion-text-color);
-  padding: 20px 0;
+  padding: var(--relieve-spacing-xl) 0;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  position: relative;
+}
+
+.bottle-message::before,
+.bottle-message::after {
+  content: '"';
+  font-size: 48px;
+  color: var(--ion-color-tertiary);
+  opacity: 0.3;
+  position: absolute;
+  font-family: serif;
+}
+
+.bottle-message::before {
+  top: 0;
+  left: 20px;
+}
+
+.bottle-message::after {
+  bottom: -20px;
+  right: 20px;
+  transform: rotate(180deg);
 }
 
 .echo-selection {
-  margin: 20px 0;
+  margin: var(--relieve-spacing-lg) 0;
+  animation: fade-in-up 0.6s ease-out 0.6s both;
 }
 
 .echo-selection h3 {
   text-align: center;
   color: var(--ion-color-medium);
-  margin-bottom: 15px;
+  margin-bottom: var(--relieve-spacing-md);
+  font-size: var(--relieve-font-size-lg);
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .echo-options {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--relieve-spacing-sm);
 }
 
 .echo-options ion-button {
-  --box-shadow: none;
+  --box-shadow: var(--relieve-shadow-subtle);
+  --border-radius: var(--relieve-border-radius-small);
+  font-weight: 600;
+  transition: all var(--relieve-transition-fast) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.echo-options ion-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.echo-options ion-button:hover::before {
+  left: 100%;
+}
+
+.echo-options ion-button:hover {
+  transform: translateY(-2px);
+  --box-shadow: var(--relieve-shadow-medium);
 }
 
 .action-buttons {
-  margin-top: 20px;
+  margin-top: var(--relieve-spacing-lg);
+  animation: fade-in-up 0.6s ease-out 0.8s both;
 }
 
 .action-buttons ion-button {
-  margin: 10px 0;
+  margin: var(--relieve-spacing-sm) 0;
+  --border-radius: var(--relieve-border-radius-small);
+  --box-shadow: var(--relieve-shadow-subtle);
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
+/* FAB 按钮增强 */
 ion-fab-button {
-  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --background: var(--relieve-gradient-primary);
+  --box-shadow: var(--relieve-shadow-colored);
+  transition: all var(--relieve-transition-medium) ease;
 }
 
+ion-fab-button:hover {
+  transform: scale(1.1) rotate(5deg);
+  --box-shadow: 0 16px 48px rgba(102, 126, 234, 0.4);
+}
+
+/* 下拉刷新增强 */
 ion-refresher {
   --refresher-text-color: var(--ion-color-medium);
   --refresher-icon-color: var(--ion-color-primary);
+}
+
+/* 列表项动画 */
+ion-list ion-card {
+  animation: fade-in-up 0.4s ease-out;
+  animation-fill-mode: both;
+}
+
+ion-list ion-card:nth-child(1) { animation-delay: 0.1s; }
+ion-list ion-card:nth-child(2) { animation-delay: 0.2s; }
+ion-list ion-card:nth-child(3) { animation-delay: 0.3s; }
+ion-list ion-card:nth-child(4) { animation-delay: 0.4s; }
+ion-list ion-card:nth-child(5) { animation-delay: 0.5s; }
+
+/* 模态框增强 */
+ion-modal {
+  --border-radius: var(--relieve-border-radius-large);
+}
+
+ion-modal ion-toolbar {
+  --background: var(--relieve-gradient-primary);
+  --color: white;
+}
+
+ion-modal ion-title {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .intro-card {
+    margin: var(--relieve-spacing-md);
+  }
+  
+  .bottles-section {
+    padding: 0 var(--relieve-spacing-md);
+  }
+  
+  .modal-content {
+    padding: var(--relieve-spacing-md);
+  }
+  
+  .bottle-message {
+    font-size: var(--relieve-font-size-md);
+    padding: var(--relieve-spacing-lg) 0;
+  }
+}
+
+/* 深色模式优化 */
+@media (prefers-color-scheme: dark) {
+  .bottle-content {
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+  }
+  
+  .bottle-time {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  .echo-chips ion-chip {
+    --background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
 }

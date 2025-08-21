@@ -1,59 +1,275 @@
-/* 时光酒杯页面样式 */
+/* 时光酒杯页面样式 - 视觉增强版 */
 .modal-content {
-  padding: 20px;
+  padding: var(--relieve-spacing-lg);
+  animation: fade-in-up 0.6s ease-out;
 }
 
 .toast-selection {
-  margin: 30px 0;
+  margin: var(--relieve-spacing-2xl) 0;
 }
 
 .toast-selection h3 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: var(--relieve-spacing-lg);
   color: var(--ion-color-medium);
+  font-size: var(--relieve-font-size-lg);
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .entry-content {
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: var(--relieve-font-size-md);
+  line-height: 1.8;
   color: var(--ion-text-color);
   white-space: pre-wrap;
-  margin: 10px 0;
+  margin: var(--relieve-spacing-sm) 0;
+  padding: var(--relieve-spacing-md);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--relieve-border-radius-small);
+  border-left: 4px solid var(--ion-color-primary);
 }
 
 .timestamp {
   float: right;
-  font-size: 12px;
+  font-size: var(--relieve-font-size-xs);
   color: var(--ion-color-medium);
-  margin-top: 5px;
+  margin-top: var(--relieve-spacing-xs);
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: var(--relieve-border-radius-small);
+  backdrop-filter: blur(5px);
 }
 
 ion-card {
-  margin: 16px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: var(--relieve-spacing-md);
+  border-radius: var(--relieve-border-radius-medium);
+  box-shadow: var(--relieve-shadow-subtle);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--relieve-transition-medium) ease;
+}
+
+ion-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--relieve-gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--relieve-transition-medium) ease;
+}
+
+ion-card:hover::before {
+  transform: scaleX(1);
+}
+
+ion-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--relieve-shadow-medium);
 }
 
 ion-card-header {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--relieve-spacing-md);
+}
+
+ion-card-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--relieve-font-size-lg);
+  font-weight: 600;
 }
 
 ion-chip {
-  margin-right: 10px;
+  margin-right: var(--relieve-spacing-sm);
+  --background: rgba(255, 255, 255, 0.1);
+  --color: var(--ion-color-dark);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  transition: all var(--relieve-transition-fast) ease;
+}
+
+ion-chip:hover {
+  transform: translateY(-1px);
+  --background: rgba(255, 255, 255, 0.2);
 }
 
 ion-textarea {
-  --padding-start: 16px;
-  --padding-end: 16px;
-  font-size: 16px;
-  line-height: 1.5;
+  --padding-start: var(--relieve-spacing-md);
+  --padding-end: var(--relieve-spacing-md);
+  --padding-top: var(--relieve-spacing-md);
+  --padding-bottom: var(--relieve-spacing-md);
+  font-size: var(--relieve-font-size-md);
+  line-height: 1.6;
+  --background: rgba(255, 255, 255, 0.05);
+  --border-radius: var(--relieve-border-radius-small);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all var(--relieve-transition-fast) ease;
+}
+
+ion-textarea:focus-within {
+  --background: rgba(255, 255, 255, 0.1);
+  border-color: var(--ion-color-primary);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 ion-segment {
-  padding: 10px;
+  padding: var(--relieve-spacing-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--relieve-border-radius-small);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 ion-segment-button {
   --indicator-color: var(--ion-color-primary);
   --color-checked: var(--ion-color-primary);
+  --background-checked: rgba(102, 126, 234, 0.1);
+  border-radius: var(--relieve-border-radius-small);
+  margin: 2px;
+  transition: all var(--relieve-transition-fast) ease;
+}
+
+ion-segment-button:hover {
+  --background: rgba(255, 255, 255, 0.1);
+}
+
+/* 搜索栏增强 */
+ion-searchbar {
+  --background: rgba(255, 255, 255, 0.05);
+  --border-radius: var(--relieve-border-radius-small);
+  --box-shadow: var(--relieve-shadow-subtle);
+  --color: var(--ion-color-dark);
+  --placeholder-color: var(--ion-color-medium);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* 举杯按钮样式 */
+.toast-options ion-button {
+  --border-radius: var(--relieve-border-radius-small);
+  --box-shadow: var(--relieve-shadow-subtle);
+  margin-bottom: var(--relieve-spacing-sm);
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--relieve-transition-fast) ease;
+}
+
+.toast-options ion-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+.toast-options ion-button:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+.toast-options ion-button[fill="solid"] {
+  --background: var(--relieve-gradient-primary);
+  --color: white;
+  transform: scale(1.02);
+  box-shadow: var(--relieve-shadow-colored);
+}
+
+/* 删除按钮样式 */
+ion-button[color="danger"] {
+  --background: rgba(255, 107, 157, 0.1);
+  --color: var(--ion-color-danger);
+  --border-color: var(--ion-color-danger);
+  transition: all var(--relieve-transition-fast) ease;
+}
+
+ion-button[color="danger"]:hover {
+  --background: rgba(255, 107, 157, 0.2);
+  transform: translateY(-1px);
+}
+
+/* FAB 按钮增强 */
+ion-fab-button {
+  --background: var(--relieve-gradient-primary);
+  --box-shadow: var(--relieve-shadow-colored);
+  --border-radius: 50%;
+  transition: all var(--relieve-transition-medium) ease;
+}
+
+ion-fab-button:hover {
+  transform: scale(1.1);
+  --box-shadow: 0 12px 40px rgba(102, 126, 234, 0.4);
+}
+
+/* 模态框增强 */
+ion-modal {
+  --border-radius: var(--relieve-border-radius-large);
+}
+
+ion-modal ion-toolbar {
+  --background: var(--relieve-gradient-primary);
+  --color: white;
+}
+
+ion-modal ion-title {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .modal-content {
+    padding: var(--relieve-spacing-md);
+  }
+  
+  .toast-selection {
+    margin: var(--relieve-spacing-lg) 0;
+  }
+  
+  ion-card {
+    margin: var(--relieve-spacing-sm);
+  }
+}
+
+/* 深色模式优化 */
+@media (prefers-color-scheme: dark) {
+  ion-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .entry-content {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  .timestamp {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  ion-textarea {
+    --background: rgba(0, 0, 0, 0.2);
+  }
+  
+  ion-segment {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  ion-searchbar {
+    --background: rgba(0, 0, 0, 0.2);
+  }
 }
