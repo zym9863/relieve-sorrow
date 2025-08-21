@@ -1,2 +1,188 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
+
+/* 解忧应用 - 设计系统 */
+
+:root {
+  /* 主色调 - 宁静蓝紫渐变系 */
+  --ion-color-primary: #667eea;
+  --ion-color-primary-rgb: 102, 126, 234;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #5a6fce;
+  --ion-color-primary-tint: #7589ec;
+
+  /* 次色调 - 温暖紫色系 */
+  --ion-color-secondary: #764ba2;
+  --ion-color-secondary-rgb: 118, 75, 162;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #68428f;
+  --ion-color-secondary-tint: #8459ab;
+
+  /* 成功色 - 治愈绿 */
+  --ion-color-success: #4ecdc4;
+  --ion-color-success-rgb: 78, 205, 196;
+  --ion-color-success-contrast: #000000;
+  --ion-color-success-contrast-rgb: 0, 0, 0;
+  --ion-color-success-shade: #45b5ac;
+  --ion-color-success-tint: #60d2ca;
+
+  /* 警告色 - 温暖橙 */
+  --ion-color-warning: #ffc947;
+  --ion-color-warning-rgb: 255, 201, 71;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #e0b13e;
+  --ion-color-warning-tint: #ffd159;
+
+  /* 危险色 - 温柔红 */
+  --ion-color-danger: #ff6b9d;
+  --ion-color-danger-rgb: 255, 107, 157;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #e05e8a;
+  --ion-color-danger-tint: #ff7aa7;
+
+  /* 第三色调 - 薰衣草紫 */
+  --ion-color-tertiary: #a8b3f5;
+  --ion-color-tertiary-rgb: 168, 179, 245;
+  --ion-color-tertiary-contrast: #000000;
+  --ion-color-tertiary-contrast-rgb: 0, 0, 0;
+  --ion-color-tertiary-shade: #949dd8;
+  --ion-color-tertiary-tint: #b1bbf6;
+
+  /* 自定义颜色 - 治愈系配色 */
+  --relieve-gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --relieve-gradient-warm: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  --relieve-gradient-cool: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  --relieve-gradient-sunset: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+  --relieve-gradient-ocean: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  /* 阴影系统 */
+  --relieve-shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --relieve-shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --relieve-shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.18);
+  --relieve-shadow-colored: 0 8px 32px rgba(102, 126, 234, 0.25);
+
+  /* 圆角系统 */
+  --relieve-border-radius-small: 8px;
+  --relieve-border-radius-medium: 12px;
+  --relieve-border-radius-large: 16px;
+  --relieve-border-radius-xl: 24px;
+
+  /* 间距系统 */
+  --relieve-spacing-xs: 4px;
+  --relieve-spacing-sm: 8px;
+  --relieve-spacing-md: 16px;
+  --relieve-spacing-lg: 24px;
+  --relieve-spacing-xl: 32px;
+  --relieve-spacing-2xl: 48px;
+
+  /* 字体系统 */
+  --relieve-font-size-xs: 12px;
+  --relieve-font-size-sm: 14px;
+  --relieve-font-size-md: 16px;
+  --relieve-font-size-lg: 18px;
+  --relieve-font-size-xl: 20px;
+  --relieve-font-size-2xl: 24px;
+  --relieve-font-size-3xl: 32px;
+
+  /* 动画时长 */
+  --relieve-transition-fast: 0.15s;
+  --relieve-transition-medium: 0.25s;
+  --relieve-transition-slow: 0.35s;
+
+  /* 透明度 */
+  --relieve-opacity-disabled: 0.6;
+  --relieve-opacity-subtle: 0.8;
+  --relieve-opacity-medium: 0.9;
+}
+
+/* 深色模式优化 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* 调整深色模式下的渐变 */
+    --relieve-gradient-primary: linear-gradient(135deg, #4a5db8 0%, #5a3a7a 100%);
+    --relieve-gradient-warm: linear-gradient(135deg, #2d1b12 0%, #3d2820 100%);
+    --relieve-gradient-cool: linear-gradient(135deg, #1a2e2c 0%, #2d1f26 100%);
+    
+    /* 调整阴影为更适合深色的效果 */
+    --relieve-shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --relieve-shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --relieve-shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.5);
+    --relieve-shadow-colored: 0 8px 32px rgba(102, 126, 234, 0.4);
+  }
+}
+
+/* 全局样式增强 */
+ion-card {
+  border-radius: var(--relieve-border-radius-medium);
+  box-shadow: var(--relieve-shadow-subtle);
+  transition: all var(--relieve-transition-medium) ease;
+  overflow: hidden;
+}
+
+ion-card:hover {
+  box-shadow: var(--relieve-shadow-medium);
+  transform: translateY(-2px);
+}
+
+ion-button {
+  --border-radius: var(--relieve-border-radius-small);
+  --box-shadow: var(--relieve-shadow-subtle);
+  transition: all var(--relieve-transition-fast) ease;
+}
+
+ion-button:hover:not([disabled]) {
+  --box-shadow: var(--relieve-shadow-medium);
+  transform: translateY(-1px);
+}
+
+ion-fab-button {
+  --box-shadow: var(--relieve-shadow-colored);
+  --border-radius: 50%;
+}
+
+/* 毛玻璃效果 */
+.glass-effect {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 文字渐变效果 */
+.gradient-text {
+  background: var(--relieve-gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+/* 脉冲动画 */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.pulse-animation {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* 渐入动画 */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}

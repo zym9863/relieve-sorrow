@@ -12,7 +12,6 @@ import {
   IonFabButton,
   IonIcon,
   IonList,
-  IonItem,
   IonLabel,
   IonCard,
   IonCardHeader,

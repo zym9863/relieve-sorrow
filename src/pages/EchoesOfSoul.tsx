@@ -16,7 +16,6 @@ import {
   IonFabButton,
   IonModal,
   IonList,
-  IonItem,
   IonLabel,
   IonTextarea,
   IonChip,
