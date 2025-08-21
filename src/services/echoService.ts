@@ -4,16 +4,28 @@
 import { Storage } from '@ionic/storage';
 import { BottleMessage } from '../types/echo';
 
-const storage = new Storage();
-await storage.create();
-
 const BOTTLES_KEY = 'bottle_messages';
 const RECEIVED_KEY = 'received_bottles';
+
+// 创建存储实例并确保初始化
+let storage: Storage | null = null;
+
+/**
+ * 初始化存储（如果还未初始化）
+ */
+const initStorage = async (): Promise<Storage> => {
+  if (!storage) {
+    storage = new Storage();
+    await storage.create();
+  }
+  return storage;
+};
 
 /**
  * 获取我的漂流瓶
  */
 export const getBottleMessages = async (): Promise<BottleMessage[]> => {
+  const storage = await initStorage();
   const bottles = await storage.get(BOTTLES_KEY);
   return bottles || [];
 };
@@ -22,6 +34,7 @@ export const getBottleMessages = async (): Promise<BottleMessage[]> => {
  * 发送漂流瓶
  */
 export const sendBottleMessage = async (bottle: BottleMessage): Promise<void> => {
+  const storage = await initStorage();
   const bottles = await getBottleMessages();
   bottles.unshift(bottle);
   await storage.set(BOTTLES_KEY, bottles);
@@ -34,6 +47,7 @@ export const sendBottleMessage = async (bottle: BottleMessage): Promise<void> =>
  * 添加到公共池（模拟）
  */
 const addToPublicPool = async (bottle: BottleMessage): Promise<void> => {
+  const storage = await initStorage();
   // 在实际应用中，这里会发送到服务器
   // 现在我们使用本地存储模拟
   const publicPool = await storage.get('public_pool') || [];
@@ -45,6 +59,7 @@ const addToPublicPool = async (bottle: BottleMessage): Promise<void> => {
  * 获取随机漂流瓶
  */
 export const getRandomBottle = async (): Promise<BottleMessage | null> => {
+  const storage = await initStorage();
   // 模拟从公共池获取
   const publicPool: BottleMessage[] = await storage.get('public_pool') || [];
   
@@ -68,6 +83,7 @@ export const getRandomBottle = async (): Promise<BottleMessage | null> => {
  * 发送回响
  */
 export const sendEcho = async (bottleId: string, echoType: string): Promise<void> => {
+  const storage = await initStorage();
   // 更新公共池中的瓶子
   const publicPool: BottleMessage[] = await storage.get('public_pool') || [];
   const bottleIndex = publicPool.findIndex(b => b.id === bottleId);
@@ -138,6 +154,7 @@ const createSampleBottles = async (): Promise<BottleMessage[]> => {
  * 获取收到的瓶子历史
  */
 export const getReceivedBottles = async (): Promise<BottleMessage[]> => {
+  const storage = await initStorage();
   const received = await storage.get(RECEIVED_KEY);
   return received || [];
 };
@@ -146,6 +163,7 @@ export const getReceivedBottles = async (): Promise<BottleMessage[]> => {
  * 保存收到的瓶子
  */
 export const saveReceivedBottle = async (bottle: BottleMessage): Promise<void> => {
+  const storage = await initStorage();
   const received = await getReceivedBottles();
   received.unshift(bottle);
   await storage.set(RECEIVED_KEY, received);
