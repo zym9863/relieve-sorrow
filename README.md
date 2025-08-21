@@ -1,3 +1,5 @@
+[English](./README-EN.md) | 简体中文
+
 # 解忧 - Relieve Sorrow
 
 一个基于 Ionic React 的移动应用，帮助用户记录心情、分享感受，获得心灵慰藉。

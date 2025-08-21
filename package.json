@@ -54,5 +54,6 @@
   "overrides": {
     "rollup": "4.44.0"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "license": "MIT"
 }
